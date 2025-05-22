@@ -1,4 +1,4 @@
-from moransi import morans_i_image, morans_i_adjacency_matrix
+from .._moransi import morans_i_image, morans_i_adjacency_matrix
 from scipy.ndimage import generate_binary_structure
 from libpysal.weights import lat2W
 import numpy as np

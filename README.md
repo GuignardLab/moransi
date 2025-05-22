@@ -1,12 +1,11 @@
-# Moran's I
-
+# Moran's Index
 
 [![License MIT](https://img.shields.io/github/license/GuignardLab/moransi?color=green)](https://github.com/GuignardLab/moransi/raw/main/LICENSE)
 [![PyPI](https://img.shields.io/pypi/v/moransi.svg?color=green)](https://pypi.org/project/moransi)
 [![Python Version](https://img.shields.io/pypi/pyversions/moransi.svg?color=green)](https://python.org)
 [![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-orange.json)](https://github.com/copier-org/copier)
 
-Compute Moran's Index for images or adjacency matrix
+Compute Moran's Index for images or adjacency matrices
 
 ----------------------------------
 
@@ -18,13 +17,36 @@ You can install `moransi` via [pip]:
 pip install moransi
 ```
 
-
 To install latest development version :
 
 ```shell
 pip install git+https://github.com/GuignardLab/moransi.git
 ```
 
+## Usage
+
+You can use this code after installing it the following way:
+
+```python
+from moransi import morans_i_image
+
+image = ... # opening an image
+kernel = ... # A kernel for the weights of the neighbouring pixels
+
+morans_i_image(image, kernel) # Returns the Moran's index
+```
+
+```python
+from moransi import morans_i_adjacency_matrix
+
+adjacency_matrix = ... # an adjacency matrix of size N by N.
+                       # It is either binary or links weights
+                       # adjacency_matrix[i, j] is >0 if there is an edge
+                       # between i and j
+metric = ... # An array of size N where metric[i] is the value of node `i`
+
+morans_i_adjacency_matrix(image, metric) # Returns the Moran's index
+```
 
 ## Contributing
 
