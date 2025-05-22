@@ -33,8 +33,7 @@ classifiers = [
 ]
 dependencies = [
     "numpy", 
-    "scipy", 
-    "jupyter", 
+    "scipy",
 ]
 
 [project.urls]
@@ -50,6 +49,10 @@ dev = [
     "ruff",
     "bumpver",
     "pytest",
+]
+test = [
+    "pytest",
+    "libpysal",
 ]
 
 [tool.black]
