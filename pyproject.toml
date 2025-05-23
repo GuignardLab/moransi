@@ -14,7 +14,7 @@ maintainers = [
 ]
 name = "moransi"
 description = "Compute Moran's Index for images or adjacency matrix"
-version = "1.0.0"
+version = "1.0.1"
 license-files = ["LICENSE"]
 readme = {file = "README.md", content-type = "text/markdown"}
 requires-python = ">= 3.8"
@@ -65,7 +65,7 @@ profile = "black"
 line_length = 79
 
 [tool.bumpver]
-current_version = "1.0.0"
+current_version = "1.0.1"
 version_pattern = "MAJOR.MINOR.PATCH[-TAG]"
 commit_message = "bump version {old_version} -> {new_version}"
 commit = true
