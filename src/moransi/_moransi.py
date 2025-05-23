@@ -3,7 +3,9 @@ from scipy.ndimage import convolve
 from scipy.sparse import sparray
 
 
-def morans_i_image(image: np.ndarray, kernel: np.ndarray) -> float:
+def morans_i_image(
+    image: np.ndarray, kernel: np.ndarray, hasnan: bool = False
+) -> float:
     """Compute and return the Moran Index of `image` using `kernel` for the weights
 
     Parameters
@@ -12,18 +14,24 @@ def morans_i_image(image: np.ndarray, kernel: np.ndarray) -> float:
         The image to compute the moran index on
     kernel : np.ndarray
         The kernel from which the weights are computed from
+    hasnan : bool
+        whether or not `image` has nan values
 
     Returns
     -------
     float
         The moran index of the image `image` given the weights `kernel`
     """
-    image_ = image - np.mean(image)
-    nb_neighb = 1 / convolve(
-        np.ones_like(image, dtype=float), kernel, mode="constant"
-    )
+    if hasnan:
+        mask = np.isnan(image)
+        image_ = image - np.nanmean(image)
+        image = np.nan_to_num(image)
+    else:
+        image_ = image - np.mean(image)
+    nb_neighb = 1 / convolve(mask.astype(float), kernel, mode="constant")
+    nb_neighb[mask] = 0
     C = (nb_neighb) * convolve(image_, kernel, mode="constant")
-    M = np.nansum(image_ * C) / np.nansum(image_**2)
+    M = np.sum(image_ * C) / np.sum(image_**2)
     return M
 
 
