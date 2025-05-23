@@ -15,21 +15,23 @@ maintainers = [
 name = "moransi"
 description = "Compute Moran's Index for images or adjacency matrix"
 version = "1.0.0"
-license = { file = "LICENSE" }
-readme = {file = "README.txt", content-type = "text/markdown"}
-requires-python = ">= 3.10"
+license-files = ["LICENSE"]
+readme = {file = "README.md", content-type = "text/markdown"}
+requires-python = ">= 3.8"
 classifiers = [
     "Development Status :: 4 - Beta",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    
+    "Intended Audience :: Developers",    
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
 ]
 dependencies = [
     "numpy", 
